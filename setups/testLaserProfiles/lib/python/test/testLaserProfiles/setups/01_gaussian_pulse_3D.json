@@ -1,0 +1,19 @@
+{
+  "cmake_profile": 1,
+  "profile": {
+    "a_0": 50,
+    "TemporalShape": "GaussianPulse",
+    "temporal_shape_param": {
+      "tau": 30e-15
+    },
+    "beam_param": {"w_0": 1.0e-6,
+      "focus_position": [4.0e-6, 5.0e-6, 0.0e-6],
+      "wavelength": 800e-9
+    }
+  },
+  "simulation": {
+    "t0": 0,
+    "ndim": 3,
+    "slicing": [[17,-17], [17,-17], [17,-17]]
+  }
+}

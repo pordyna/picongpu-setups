@@ -1,0 +1,28 @@
+{
+  "cmake_profile": 3,
+  "profile": {
+    "a_0": 35,
+    "TemporalShape": "ExpRampWithPrepulse",
+    "temporal_shape_param": {
+      "int_ratio_prepulse": 1.0e-4,
+      "int_ratio_point_1": 1.0e-8,
+      "int_ratio_point_2": 1.0e-5,
+      "int_ratio_point_3": 1.0e-3,
+      "ramp_init": 16,
+      "time_1": -1.0e-12,
+      "time_2": -400.0e-15,
+      "time_3": -100e-15,
+      "time_prepulse": -950.0e-15,
+      "tau": 30e-15
+    },
+    "beam_param": {"w_0": 1.0e-6,
+      "focus_position": [4.0e-6, 5.0e-6, 0.0e-6],
+      "wavelength": 800e-9
+    }
+  },
+  "simulation": {
+    "t0": 0,
+    "ndim": 3,
+    "slicing": [[17,-17], [17,-17], [17,-17]]
+  }
+}

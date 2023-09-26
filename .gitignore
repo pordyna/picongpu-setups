@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+# picongpu test outputs
+simOutput*
+.build
+cmakeFlagsSetup

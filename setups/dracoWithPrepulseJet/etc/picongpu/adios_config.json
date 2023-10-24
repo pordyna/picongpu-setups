@@ -1,0 +1,8 @@
+{"adios2": {
+    "engine": {
+        "parameters": {
+             "AggregatorRatio" : "1"
+             ,"BufferChunkSize" : "2147381248"
+        }
+    }
+}}

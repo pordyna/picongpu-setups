@@ -71,7 +71,7 @@ namespace picongpu
                  }
              };
              using ThreeTimesIonized = generic::Free<ThreeTimesIonizedImpl>;
-            
+
             struct TemperatureParam
             {
                 /** Initial temperature
@@ -91,58 +91,19 @@ namespace picongpu
                  *
                  *  unit: none
                  */
-                static constexpr uint32_t numParticlesPerCell = 2u;
+                static constexpr uint32_t numParticlesPerCell = 8u;
             };
-            using Random2ppc = RandomImpl<RandomParameter2ppc>;
+            using Random8ppc = RandomImpl<RandomParameter2ppc>;
 
-            struct QuietParam8
-            {
-                /** Count of particles per cell per direction at initial state
-                 *
-                 *  unit: none */
-                using numParticlesPerDimension
-                    = mCT::shrinkTo<mCT::Int<2, 2, 2>, simDim>::type;
-            };
-            /** definition of quiet particle start */
 
-            struct QuietParam4
-            {
-                /** Count of particles per cell per direction at initial state
-                 *
-                 *  unit: none */
-                using numParticlesPerDimension
-                    = mCT::shrinkTo<mCT::Int<2, 2, 1>, simDim>::type;
-            };
-            /** definition of quiet particle start */
-
-            struct QuietParam2
-            {
-                /** Count of particles per cell per direction at initial state
-                 *
-                 *  unit: none */
-                using numParticlesPerDimension
-                    = mCT::shrinkTo<mCT::Int<1, 2, 1>, simDim>::type;
-            };
-            /** definition of quiet particle start */
-
-            struct QuietParam16
-            {
-                /** Count of particles per cell per direction at initial state
-                 *
-                 *  unit: none */
-                using numParticlesPerDimension
-                    = mCT::shrinkTo<mCT::Int<2, 4, 2>, simDim>::type;
-            };
-            /** definition of quiet particle start */
-
-            using UsedPosition = QuietImpl<USED_QUIET_PARAM>;
+            using UsedPosition = Random8ppc;
         } // namespace startPosition
 
         /** During unit normalization, we assume this is a typical
          *  number of particles per cell for normalization of weighted
          *  particle attributes.
          */
-        constexpr uint32_t TYPICAL_PARTICLES_PER_CELL = mCT::volume<startPosition::USED_QUIET_PARAM::numParticlesPerDimension>::type::value;
+        constexpr uint32_t TYPICAL_PARTICLES_PER_CELL = 8u;
 
     } // namespace particles
 } // namespace picongpu

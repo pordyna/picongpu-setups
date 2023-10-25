@@ -39,8 +39,8 @@ namespace picongpu
          *
          * the functors are called in order (from first to last functor)
          */
-        using InitPipeline = bmpl::vector<
-            CreateDensity<densityProfiles::FlatFoilWithRamp, startPosition::UsedPosition, Silicon>,
+        using InitPipeline = pmacc::mp_list<
+            CreateDensity<densityProfiles::FlatFoilWithRamp, startPosition::UsedPosition, Silicon>
           //  Manipulate<manipulators::ThreeTimesIonized, Silicon>,
           //  ManipulateDerive<manipulators::binary::UnboundElectronsTimesWeighting, Silicon, Electrons>,
           //  Manipulate<manipulators::AddTemperature, Electrons>

@@ -453,6 +453,7 @@ namespace picongpu
                 static constexpr float_64 TIME_POINT_3_SI = -1e-150000000000000;
                 /** @} */
 
+
                 /** The laser pulse will be initialized half of RAMP_INIT times of the PULSE_DURATION before
                  * plateau and half at the end of the plateau
                  *

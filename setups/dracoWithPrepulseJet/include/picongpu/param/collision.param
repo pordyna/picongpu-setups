@@ -49,6 +49,8 @@ namespace picongpu
             using Pairs = pmacc::mp_list<Pair<Electrons, Hydrogen>, Pair<Electrons, Electrons>,Pair<Hydrogen, Hydrogen>>;
             using CollisionPipeline = pmacc::mp_list<Collider<relativistic::RelativisticCollisionDynamicLog<>, Pairs>>;
            // using CollisionPipeline = pmacc::mp_list<>;
+            constexpr uint32_t cellListChunkSize = particles::TYPICAL_PARTICLES_PER_CELL;
+
         } // namespace collision
     } // namespace particles
 } // namespace picongpu

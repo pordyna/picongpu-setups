@@ -450,7 +450,7 @@ namespace picongpu
                 static constexpr float_64 TIME_PEAKPULSE_SI = 0.0e-15;
                 static constexpr float_64 TIME_POINT_1_SI = -10000.0e-15;
                 static constexpr float_64 TIME_POINT_2_SI = -400.0e-15;
-                static constexpr float_64 TIME_POINT_3_SI = -1e-150000000000000;
+                static constexpr float_64 TIME_POINT_3_SI = -1e-15;
                 /** @} */
 
                 /** The laser pulse will be initialized half of RAMP_INIT times of the PULSE_DURATION before

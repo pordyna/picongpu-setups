@@ -26,7 +26,7 @@
  * pre-ionization and in-cell position.
  */
 #ifndef PARAM_PPC
-#   define PARAM_PPC 240u
+#   define PARAM_PPC 120u
 #endif
 
 #pragma once

@@ -43,7 +43,7 @@
 #pragma once
 
 #ifndef PARAM_RESOLUTION
-#    define PARAM_RESOLUTION 192.0
+#    define PARAM_RESOLUTION 96.0
 #endif
 namespace picongpu::SI
 {

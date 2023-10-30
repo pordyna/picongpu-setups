@@ -85,8 +85,8 @@ namespace densityProfiles
             // plateau
             if( r <= r_c )
                 dens = 1.0;
-            if( r > r_c && r < r_cutoff )
-                dens = math::exp( ( r_c - r ) / r_scale );
+           // if( r_scale > 0.0 && r > r_c && r < r_cutoff )
+           //     dens = math::exp( ( r_c - r ) / r_scale );
             dens *= float_64( dens >= 0.0 );
             return dens;
         }

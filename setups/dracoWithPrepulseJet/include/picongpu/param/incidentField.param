@@ -65,6 +65,9 @@
 #ifndef PARAM_A0_PREPULSE
 #    define PARAM_A0_PREPULSE 0.8784
 #endif
+#ifndef PARAM_PREPULSE_DELAY
+#    define PARAM_PREPULSE_DELAY 0.0
+#endif
 namespace picongpu
 {
     namespace fields
@@ -299,7 +302,7 @@ namespace picongpu
                  *
                  * @attention TIME_DELAY_SI is optional, default value is 0
                  */
-                static constexpr float_64 TIME_DELAY_SI = 0.0;
+                static constexpr float_64 TIME_DELAY_SI = PARAM_PREPULSE_DELAY;
 
                 /** Max amplitude of E field
                  *

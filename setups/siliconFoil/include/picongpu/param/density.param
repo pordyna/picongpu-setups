@@ -77,8 +77,8 @@ namespace picongpu
                 float_64 dens = 0.0;
 
                 // upramp
-                if(y < y0 && (y0 - y) < L_cutoff)
-                    dens = math::exp((y - y0) / L);
+                //if(y < y0 && (y0 - y) < L_cutoff)
+                //    dens = math::exp((y - y0) / L);
                 // plateau
                 if(y >= y0 && y <= y1)
                     dens = 1.0;

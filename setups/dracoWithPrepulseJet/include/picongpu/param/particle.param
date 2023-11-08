@@ -26,31 +26,31 @@
  * pre-ionization and in-cell position.
  */
 #ifndef PARAM_PPC
-#   define PARAM_PPC 128u
+#    define PARAM_PPC 128u
 #endif
 
 #pragma once
 
-#include "picongpu/particles/startPosition/functors.def"
 #include "picongpu/particles/manipulators/manipulators.def"
+#include "picongpu/particles/startPosition/functors.def"
 
 namespace picongpu
 {
-namespace particles
-{
+    namespace particles
+    {
 
-    /** a particle with a weighting below MIN_WEIGHTING will not
-     *      be created / will be deleted
-     *
-     *  unit: none
-     *
-     * here we essentially allow any weighting since it has no real meaning in 2D3V
-     */
-    constexpr float_X MIN_WEIGHTING = 0.1;
+        /** a particle with a weighting below MIN_WEIGHTING will not
+         *      be created / will be deleted
+         *
+         *  unit: none
+         *
+         * here we essentially allow any weighting since it has no real meaning in 2D3V
+         */
+        constexpr float_X MIN_WEIGHTING = 0.1;
 
-namespace manipulators
+        namespace manipulators
         {
-             /** Define initial ion charge to once ionized*/
+            /** Define initial ion charge to once ionized*/
             struct NotIonizedImpl
             {
                 /** Ionize ions once by removing one bound electron */
@@ -65,27 +65,62 @@ namespace manipulators
         } // namespace manipulators
 
 
-namespace startPosition
-{
-
-        struct RandomParameter
+        namespace startPosition
         {
-            /** Count of particles per cell at initial state
+
+            struct RandomParameter
+            {
+                /** Count of particles per cell at initial state
+                 *
+                 *  unit: none
+                 */
+                static constexpr uint32_t numParticlesPerCell = PARAM_PPC;
+            };
+            using Random = RandomImpl<RandomParameter>;
+            using UsedPosition = Random;
+
+            /** Define initial in-cell particle position used as parameter in OnePosition functor.
              *
-             *  unit: none
+             * Here, macro-particles sit directly in lower corner of the cell.
+             *
+             * This defines the type InCellOffset_t
+             * where every instance of this type has the preset values defined here.
              */
-            static constexpr uint32_t numParticlesPerCell = PARAM_PPC;
-        };
-        using Random = RandomImpl<RandomParameter>;
-        using UsedPosition = Random;
+            CONST_VECTOR(
+                float_X,
+                3,
+                InCellOffset,
+                /* each x, y, z in-cell position component in range [0.0, 1.0) */
+                0.0,
+                0.0,
+                0.0);
+            struct OnePositionParameter
+            {
+                /** Maximum number of macro-particles per cell during density profile evaluation.
+                 *
+                 * Determines the weighting of a macro particle as well as the number of
+                 * macro-particles which sample the evolution of the particle distribution
+                 * function in phase space.
+                 *
+                 * unit: none
+                 */
+                static constexpr uint32_t numParticlesPerCell = 1u;
 
-} // namespace startPosition
+                const InCellOffset_t inCellOffset;
+            };
+            /** Definition of OnePosition start position functor that
+             * places macro-particles at the initial in-cell position defined above.
+             */
+            using CellOrigin = OnePositionImpl<OnePositionParameter>;
 
-    /** During unit normalization, we assume this is a typical
-     *  number of particles per cell for normalization of weighted
-     *  particle attributes.
-     */
-    constexpr uint32_t TYPICAL_PARTICLES_PER_CELL = PARAM_PPC;
 
-} // namespace particles
+        } // namespace startPosition
+
+        /** During unit normalization, we assume this is a typical
+         *  number of particles per cell for normalization of weighted
+         *  particle attributes.
+         */
+        constexpr uint32_t TYPICAL_PARTICLES_PER_CELL = PARAM_PPC;
+
+    } // namespace particles
 } // namespace picongpu

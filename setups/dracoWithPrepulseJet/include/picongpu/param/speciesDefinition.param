@@ -119,6 +119,17 @@ using Hydrogen = Particles<
     IonParticleAttributes
 >;
 
+/*--------------------------- Probe Particles -------------------------------*/
+
+using ParticleFlagsProbes = MakeSeq_t<
+    particlePusher<particles::pusher::Probe>,
+    shape<UsedParticleShape>,
+    interpolation<UsedField2Particle>>;
+
+/* define species Probe */
+using Probes
+    = Particles<PMACC_CSTRING("probe"), ParticleFlagsProbes, MakeSeq_t<position<position_pic>, probeB, probeE>>;
+
 /*########################### end species ####################################*/
 
 /** All known particle species of the simulation
@@ -128,7 +139,8 @@ using Hydrogen = Particles<
  */
 using VectorAllSpecies = MakeSeq_t<
     Electrons,
-    Hydrogen
+    Hydrogen,
+    Probes
 >;
 
 } // namespace picongpu

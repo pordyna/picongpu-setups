@@ -31,7 +31,7 @@
 #include "picongpu/particles/InitFunctors.hpp"
 
 #ifndef ENABLE_PARTICLES
-    #define ENABLE_PARTICLES 1
+    #define ENABLE_PARTICLES 0
 #endif
 namespace picongpu
 {
@@ -55,7 +55,7 @@ namespace particles
 #endif
         >;
 #else
-    using InitPipeline = pmacc::mp_list<>;
+    using InitPipeline = pmacc::mp_list<CreateDensity<densityProfiles::FocusProbe, startPosition::CellOrigin, Probes>>;
 #endif
     /** InitPipeline defines in which order species are initialized
      *

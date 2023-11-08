@@ -40,7 +40,7 @@ namespace picongpu
              *
              * Elements must be either a species types or a misc::SpeciesFilter specialization.
              */
-            using CollisionScreeningSpecies = VectorAllSpecies;
+            using CollisionScreeningSpecies = MakeSeq_t<Electrons, Hydrogen>;
             // using CollisionScreeningSpecies =pmacc::mp_list<>;// VectorAllSpecies;
             /** CollisionPipeline defines in which order species interact with each other
              *

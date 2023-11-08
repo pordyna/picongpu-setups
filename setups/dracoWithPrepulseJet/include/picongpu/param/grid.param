@@ -43,7 +43,7 @@
 #pragma once
 
 #ifndef PARAM_RESOLUTION
-#    define PARAM_RESOLUTION 96.0
+#    define PARAM_RESOLUTION 400.0
 #endif
 namespace picongpu::SI
 {
@@ -61,7 +61,7 @@ namespace picongpu::SI
 #elif(SIMDIM == DIM3)
     constexpr float_64 CFL_CRIT = 1.733;
 #endif
-    constexpr float_64 XI_MAX = 0.995;
+    constexpr float_64 XI_MAX = 0.999;
     constexpr float_64 SOLVER_FACTOR = 1.316691;
 
     /** Duration of one timestep

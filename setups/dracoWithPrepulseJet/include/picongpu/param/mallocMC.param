@@ -43,7 +43,7 @@ namespace picongpu
          */
         static constexpr uint32_t accessblocksize = 2u * 1024u * 1024u * 1024u;
         static constexpr uint32_t regionsize = 16u;
-        static constexpr uint32_t wastefactor = 4u;
+        static constexpr uint32_t wastefactor = 3u;
 
         /** resetfreedpages is used to minimize memory fragmentation with
          * varying frame sizes

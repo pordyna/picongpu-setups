@@ -70,7 +70,7 @@ namespace densityProfiles
         {
             // center of the jet in mu and radii
             constexpr float_64 y0( 16.0 );
-            constexpr float_64 x0( 16.0646);
+            constexpr float_64 x0( 16.0 );
             constexpr float_64 r_scale( 0.0e-3);
             constexpr float_64 r0( 2.2 );
             constexpr float_64 r_cutoff( r0 + 6.0 * r_scale );

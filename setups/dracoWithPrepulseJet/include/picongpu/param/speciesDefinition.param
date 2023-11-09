@@ -42,7 +42,7 @@
 #include <pmacc/meta/String.hpp>
 
 #ifndef PARAM_IONIZATION
-#   define PARAM_IONIZATION 1
+#   define PARAM_IONIZATION 0
 #endif
 namespace picongpu
 {

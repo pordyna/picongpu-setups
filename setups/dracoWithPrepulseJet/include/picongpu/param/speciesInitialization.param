@@ -31,7 +31,7 @@
 #include "picongpu/particles/InitFunctors.hpp"
 
 #ifndef ENABLE_PARTICLES
-    #define ENABLE_PARTICLES 0
+    #define ENABLE_PARTICLES 1
 #endif
 namespace picongpu
 {

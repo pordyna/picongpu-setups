@@ -46,7 +46,7 @@ namespace picongpu
          *
          * here we essentially allow any weighting since it has no real meaning in 2D3V
          */
-        constexpr float_X MIN_WEIGHTING = 0.1;
+        constexpr float_X MIN_WEIGHTING = 0.001;
 
         namespace manipulators
         {

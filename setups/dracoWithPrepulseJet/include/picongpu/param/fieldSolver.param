@@ -51,7 +51,7 @@ namespace picongpu
          *  - Substepping<Solver, 4>: use the given Solver (Yee, etc.) and substep each time step by factor 4
          *  - None: disable the vacuum update of E and B, including no J contribution to E
          */
-        using Solver = maxwellSolver::ArbitraryOrderFDTD<5>;
+        using Solver = maxwellSolver::Yee;
 
     } // namespace fields
 } // namespace picongpu

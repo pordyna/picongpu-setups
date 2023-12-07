@@ -35,3 +35,5 @@
 simOutput*
 .build
 cmakeFlagsSetup
+compile.log
+/setups/*/bin

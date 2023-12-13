@@ -1,0 +1,13 @@
+{
+"adios2": {
+       "engine": {
+          "type": "file"
+          , "parameters": {
+              "BufferGrowthFactor": "1.5"
+              , "InitialBufferSize": "30GB"
+              , "AggregatorRatio" : "1"       
+          }               
+      }                                           
+  }                                               
+}
+

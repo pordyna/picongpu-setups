@@ -72,6 +72,18 @@ namespace picongpu
              };
              using ThreeTimesIonized = generic::Free<ThreeTimesIonizedImpl>;
 
+            // 1 time ionized ions
+             struct OneTimeIonizedImpl
+             {
+                 template<typename T_Particle>
+                 DINLINE void operator()(T_Particle& particle)
+                 {
+                     constexpr float_X protonNumber = GetAtomicNumbers<T_Particle>::type::numberOfProtons;
+                     particle[boundElectrons_] = protonNumber - 1.0_X;
+                 }
+             };
+             using ThreeTimesIonized = generic::Free<ThreeTimesIonizedImpl>;
+
             struct TemperatureParam
             {
                 /** Initial temperature

@@ -224,10 +224,10 @@ namespace picongpu
                  *
                  * @{
                  */
-                static constexpr float_X INT_RATIO_PREPULSE = 0.0122;
-                static constexpr float_X INT_RATIO_POINT_1 = 0.00447;
-                static constexpr float_X INT_RATIO_POINT_2 = 0.01378;
-                static constexpr float_X INT_RATIO_POINT_3 = 0.03229;
+                static constexpr float_X INT_RATIO_PREPULSE = 0.0013;
+                static constexpr float_X INT_RATIO_POINT_1 = 1.6e-5;
+                static constexpr float_X INT_RATIO_POINT_2 = 0.00015;
+                static constexpr float_X INT_RATIO_POINT_3 = 0.01;
                 /** @} */
 
                 /** Time-positions of prepulse and preramps points
@@ -236,9 +236,9 @@ namespace picongpu
                  */
                 static constexpr float_64 TIME_PREPULSE_SI = -390.0e-15;
                 static constexpr float_64 TIME_PEAKPULSE_SI = 0.0e-15;
-                static constexpr float_64 TIME_POINT_1_SI = -750.0e-15;
+                static constexpr float_64 TIME_POINT_1_SI = -1000.0e-15;
                 static constexpr float_64 TIME_POINT_2_SI = -226.0e-15;
-                static constexpr float_64 TIME_POINT_3_SI = -90e-15;
+                static constexpr float_64 TIME_POINT_3_SI = -110e-15;
                 /** @} */
 
                 /** Pulse duration: sigma of std. gauss for intensity (E^2)
@@ -248,7 +248,7 @@ namespace picongpu
                      *                      = what an experimentalist calls "pulse duration"
                      *  unit: seconds (1 sigma)
                  */
-                static constexpr float_64 PREPULSE_DURATION_SI = 140e-15 / 2.354820045;
+                static constexpr float_64 PREPULSE_DURATION_SI = 120e-15 / 2.354820045;
 
 
                 /** The laser pulse will be initialized half of RAMP_INIT times of the PULSE_DURATION before
@@ -375,9 +375,9 @@ namespace picongpu
              * such a case.
              */
             constexpr int32_t POSITION[3][2] = {
-                {0, 0}, // x direction [negative, positive]
+                {16, -16}, // x direction [negative, positive]
                 {16, -16}, // y direction [negative, positive]
-                {0, 0} // z direction [negative, positive]
+                {16, -16} // z direction [negative, positive]
             };
 
         } // namespace incidentField
